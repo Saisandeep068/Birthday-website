@@ -50,9 +50,12 @@ window.addEventListener("load", async () => {
     await waitingAudio.play();
 
     waitingMusicBtn.classList.add("playing");
-    waitingMusicLabel.textContent = "Let it play";
+    waitingMusicLabel.textContent = "Music playing ♡";
+
   } catch (error) {
-    console.log("Autoplay blocked by browser.");
+    waitingMusicLabel.textContent = "Tap to play music ♡";
+
+    console.log("Browser blocked autoplay:", error);
   }
 });
   const waitingMusicBtn =
