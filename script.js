@@ -44,7 +44,17 @@ const TARGET = new Date(Date.now() + 70000);
 
   const waitingAudio = document.getElementById("waitingAudio");
   const birthdayAudio = document.getElementById("birthdayAudio");
+// Automatically start waiting music
+window.addEventListener("load", async () => {
+  try {
+    await waitingAudio.play();
 
+    waitingMusicBtn.classList.add("playing");
+    waitingMusicLabel.textContent = "Let it play";
+  } catch (error) {
+    console.log("Autoplay blocked by browser.");
+  }
+});
   const waitingMusicBtn =
     document.getElementById("waitingMusicBtn");
 
